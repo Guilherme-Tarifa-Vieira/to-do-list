@@ -1,9 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.section`
+  height: calc(100% - 64px);
   display: flex;
+`
+
+export const Content = styled.div`
+  width: 350px;
+
   padding-top: 30px;
   padding-left: 30px;
-  height: calc(100% - 64px);
-  gap: 32px;
-`;
+  /* Resetando as estilizações */
+`

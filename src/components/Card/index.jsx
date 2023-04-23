@@ -1,15 +1,15 @@
-import React, { useRef, useContext, useState } from "react";
-import { useDrag, useDrop } from "react-dnd";
+import React, { useState } from "react";
+// import { useDrag, useDrop } from "react-dnd";
 
-import BoardContext from "../Board/context";
+// import BoardContext from "../Board/context";
 
 import { Container, Label } from "./styles";
 import { FiEdit } from "react-icons/fi";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-export default function Card({ data, index, listIndex }) {
-  const ref = useRef();
-  const { move } = useContext(BoardContext);
+export default function Card({ data, index }) {
+  // const ref = useRef();
+  // const { move } = useContext(BoardContext);
 
   const [isEditing, setIsEditing] = useState(false); // Estado para controlar se o modo de edição está ativado
   const [newContent, setNewContent] = useState(data.content);
@@ -28,50 +28,50 @@ export default function Card({ data, index, listIndex }) {
     setTasks([...tasks, newTask]);
   }
 
-  const [{ isDragging }, dragRef] = useDrag({
-    type: "CARD",
-    item: { id: data.id, index, listIndex },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
+  // const [{ isDragging }, dragRef] = useDrag({
+  //   type: "CARD",
+  //   item: { id: data.id, index, listIndex },
+  //   collect: (monitor) => ({
+  //     isDragging: monitor.isDragging(),
+  //   }),
+  // });
 
-  const [, dropRef] = useDrop({
-    accept: "CARD",
-    hover(item, monitor) {
-      const draggedListIndex = item.listIndex;
-      const targetListIndex = listIndex;
+  // const [, dropRef] = useDrop({
+  //   accept: "CARD",
+  //   hover(item, monitor) {
+  //     const draggedListIndex = item.listIndex;
+  //     const targetListIndex = listIndex;
 
-      const draggedIndex = item.index;
-      const targetIndex = index;
+  //     const draggedIndex = item.index;
+  //     const targetIndex = index;
 
-      if (
-        draggedIndex === targetIndex &&
-        draggedListIndex === targetListIndex
-      ) {
-        return;
-      }
+  //     if (
+  //       draggedIndex === targetIndex &&
+  //       draggedListIndex === targetListIndex
+  //     ) {
+  //       return;
+  //     }
 
-      const targetSize = ref.current.getBoundingClientRect();
-      const targetCenter = (targetSize.bottom - targetSize.top) / 2;
+  //     const targetSize = ref.current.getBoundingClientRect();
+  //     const targetCenter = (targetSize.bottom - targetSize.top) / 2;
 
-      const draggedOffset = monitor.getClientOffset();
-      const draggedTop = draggedOffset.y - targetSize.top;
+  //     const draggedOffset = monitor.getClientOffset();
+  //     const draggedTop = draggedOffset.y - targetSize.top;
 
-      if (draggedIndex < targetIndex && draggedTop < targetCenter) {
-        return;
-      }
+  //     if (draggedIndex < targetIndex && draggedTop < targetCenter) {
+  //       return;
+  //     }
 
-      if (draggedIndex > targetIndex && draggedTop > targetCenter) {
-        return;
-      }
+  //     if (draggedIndex > targetIndex && draggedTop > targetCenter) {
+  //       return;
+  //     }
 
-      move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
+  //     move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
 
-      item.index = targetIndex;
-      item.listIndex = targetListIndex;
-    },
-  });
+  //     item.index = targetIndex;
+  //     item.listIndex = targetListIndex;
+  //   },
+  // });
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -85,10 +85,11 @@ export default function Card({ data, index, listIndex }) {
     setNewDescribe(data.describe);
   };
 
-  dragRef(dropRef(ref));
+  // dragRef(dropRef(ref));
 
   return (
-    <Container ref={ref} isDragging={isDragging}>
+
+    <Container  >
       <header>
         {data.labels.map((label) => (
           <Label key={label} color={label}>
@@ -138,5 +139,6 @@ export default function Card({ data, index, listIndex }) {
         {data.user && <img src={data.user} alt="" />}
       </footer>
     </Container>
+
   );
 }

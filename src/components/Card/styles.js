@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
@@ -33,6 +33,11 @@ export const Container = styled.div`
   input {
     border: none;
     outline: none;
+  }
+  div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .footer {
@@ -118,7 +123,7 @@ export const Container = styled.div`
         opacity: 0;
       }
     `}
-`;
+`
 export const Label = styled.span`
   width: 98px;
   height: 24px;
@@ -128,4 +133,4 @@ export const Label = styled.span`
   text-align: center;
   color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-`;
+`

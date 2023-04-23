@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     border-left: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  background: #20AC69;
+  background: #20ac69;
   border-radius: 20px;
   overflow-y: scroll;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -47,4 +47,4 @@ export const Container = styled.div`
   ul {
     margin-top: 30px;
   }
-`;
+`

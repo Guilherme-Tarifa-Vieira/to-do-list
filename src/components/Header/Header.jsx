@@ -1,11 +1,9 @@
 import React from "react";
 
-import { Container, Logo, Tarefa } from "./Header.styled";
-import { BiGridAlt } from "react-icons/bi";
+import { Container, Logo } from "./Header.styled";
 import { BsFillClipboard2PlusFill } from "react-icons/bs";
 import { RxDashboard } from "react-icons/rx";
 
-import { TiCancel } from "react-icons/ti";
 import logoLink from "./img/logo.svg";
 
 function Header(height) {
